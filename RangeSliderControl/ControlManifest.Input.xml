@@ -24,6 +24,7 @@
     -->
     <resources>
       <code path="index.ts" order="1"/>
+      <css path="css/nouislider.min.css" order="1" />
       <!-- UNCOMMENT TO ADD MORE RESOURCES
       <css path="css/RangeSliderControl.css" order="1" />
       <resx path="strings/RangeSliderControl.1033.resx" version="1.0.0" />

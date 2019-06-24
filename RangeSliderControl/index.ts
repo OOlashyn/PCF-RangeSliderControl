@@ -1,6 +1,16 @@
 import {IInputs, IOutputs} from "./generated/ManifestTypes";
+import noUiSlider = require("nouislider");
 
 export class RangeSliderControl implements ComponentFramework.StandardControl<IInputs, IOutputs> {
+	private _slider: HTMLDivElement;
+
+	private _minValue: number;
+	private _maxValue: number;
+	private _stepValue: number;
+
+	private _context: ComponentFramework.Context<IInputs>;
+	private notifyOutputChanged: () => void;
+	private _container: HTMLDivElement;
 
 	/**
 	 * Empty constructor.
@@ -20,7 +30,31 @@ export class RangeSliderControl implements ComponentFramework.StandardControl<II
 	 */
 	public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, state: ComponentFramework.Dictionary, container:HTMLDivElement)
 	{
-		// Add control initialization code
+		this.notifyOutputChanged = notifyOutputChanged;
+		this._container = container;
+
+		this._minValue = context.parameters.MinValue.raw || 0;
+		this._maxValue = context.parameters.MaxValue.raw || 100;
+		this._stepValue = context.parameters.StepValue.raw;
+
+		this._slider = document.createElement("div");
+		this._slider.id = "slider";
+
+		let wrapperContainer = document.createElement("div");
+		wrapperContainer.style.marginTop = "50px";
+		wrapperContainer.appendChild(this._slider);
+
+		this._container.appendChild(wrapperContainer);
+
+		noUiSlider.create(this._slider, {
+			start: [20, 80],
+			connect: true,
+			range: {
+				'min': 0,
+				'max': 100
+			},
+			tooltips: true,
+		});
 	}
 
 
@@ -30,7 +64,9 @@ export class RangeSliderControl implements ComponentFramework.StandardControl<II
 	 */
 	public updateView(context: ComponentFramework.Context<IInputs>): void
 	{
-		// Add code to update control view
+		this._minValue = context.parameters.MinValue.raw;
+		this._maxValue = context.parameters.MaxValue.raw;
+		this._context = context;
 	}
 
 	/** 
