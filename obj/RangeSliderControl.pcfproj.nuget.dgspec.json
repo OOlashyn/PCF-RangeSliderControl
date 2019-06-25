@@ -1,0 +1,56 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\PcfCodeExample\\RangeSliderControl\\RangeSliderControl.pcfproj": {}
+  },
+  "projects": {
+    "C:\\PcfCodeExample\\RangeSliderControl\\RangeSliderControl.pcfproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\PcfCodeExample\\RangeSliderControl\\RangeSliderControl.pcfproj",
+        "projectName": "RangeSliderControl",
+        "projectPath": "C:\\PcfCodeExample\\RangeSliderControl\\RangeSliderControl.pcfproj",
+        "packagesPath": "C:\\Users\\odri_\\.nuget\\packages\\",
+        "outputPath": "C:\\PcfCodeExample\\RangeSliderControl\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\odri_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net462"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net462": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net462": {
+          "dependencies": {
+            "Microsoft.PowerApps.MSBuild.Pcf": {
+              "target": "Package",
+              "version": "[0.*, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

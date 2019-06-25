@@ -7,6 +7,8 @@ export class RangeSliderControl implements ComponentFramework.StandardControl<II
 	private _minValue: number;
 	private _maxValue: number;
 	private _stepValue: number;
+	private _upperValue: number;
+	private _lowerValue: number;
 
 	private _context: ComponentFramework.Context<IInputs>;
 	private notifyOutputChanged: () => void;
@@ -30,31 +32,54 @@ export class RangeSliderControl implements ComponentFramework.StandardControl<II
 	 */
 	public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, state: ComponentFramework.Dictionary, container:HTMLDivElement)
 	{
+		this.refreshData = this.refreshData.bind(this);
+
 		this.notifyOutputChanged = notifyOutputChanged;
 		this._container = container;
 
 		this._minValue = context.parameters.MinValue.raw || 0;
 		this._maxValue = context.parameters.MaxValue.raw || 100;
 		this._stepValue = context.parameters.StepValue.raw;
+		this._upperValue = context.parameters.UpperValue.raw;
+		this._lowerValue = context.parameters.LowerValue.raw;
 
 		this._slider = document.createElement("div");
 		this._slider.id = "slider";
 
 		let wrapperContainer = document.createElement("div");
-		wrapperContainer.style.marginTop = "50px";
+		wrapperContainer.className = "dwcrm-slider-wrapper";
+
 		wrapperContainer.appendChild(this._slider);
 
 		this._container.appendChild(wrapperContainer);
 
+		let startLower:number = this._lowerValue || this._minValue;
+		let startUpper:number = this._upperValue || this._maxValue;
+
 		noUiSlider.create(this._slider, {
-			start: [20, 80],
+			start: [startLower, startUpper],
 			connect: true,
 			range: {
-				'min': 0,
-				'max': 100
+				'min': this._minValue,
+				'max': this._maxValue
 			},
 			tooltips: true,
 		});
+
+		// @ts-ignore
+		this._slider.noUiSlider.on('change', this.refreshData);
+	}
+
+	public refreshData(values:string[], handle:number):void{
+		console.log("refreshData");
+		let value:string = values[handle];
+
+		if(handle == 0){
+			this._lowerValue = parseFloat(value);
+		} else {
+			this._upperValue = parseFloat(value);
+		}
+		this.notifyOutputChanged();
 	}
 
 
@@ -64,9 +89,24 @@ export class RangeSliderControl implements ComponentFramework.StandardControl<II
 	 */
 	public updateView(context: ComponentFramework.Context<IInputs>): void
 	{
-		this._minValue = context.parameters.MinValue.raw;
-		this._maxValue = context.parameters.MaxValue.raw;
+		let updated:boolean = false;
 		this._context = context;
+		let newUpper = context.parameters.UpperValue.raw;
+		if(this._upperValue != newUpper){
+			this._upperValue = newUpper;
+			updated = true;
+		}
+
+		let newLower = context.parameters.LowerValue.raw;
+		if(this._lowerValue != newLower){
+			this._lowerValue = newLower;
+			updated = true;
+		}
+
+		if(updated){
+			// @ts-ignore
+			this._slider.noUiSlider.set([this._lowerValue, this._upperValue]);
+		}
 	}
 
 	/** 
@@ -75,7 +115,10 @@ export class RangeSliderControl implements ComponentFramework.StandardControl<II
 	 */
 	public getOutputs(): IOutputs
 	{
-		return {};
+		return { 
+            UpperValue: this._upperValue, 
+            LowerValue: this._lowerValue 
+        };
 	}
 
 	/** 
