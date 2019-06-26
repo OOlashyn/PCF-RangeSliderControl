@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="DancingWithCrmControls" constructor="RangeSliderControl" version="0.3.0" display-name-key="DancingWithCrm.RangeSliderControl" description-key="Range Slider Control from DancingWithCrm" control-type="standard">
+  <control namespace="DancingWithCrmControls" constructor="RangeSliderControl" version="1.0.0" display-name-key="DancingWithCrm.RangeSliderControl" description-key="Range Slider Control from DancingWithCrm" control-type="standard">
     <type-group name="numbers">
         <type>Whole.None</type>
         <type>Currency</type>
@@ -8,13 +8,15 @@
         <type>Decimal</type>
     </type-group>
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
-    <property name="MinValue" display-name-key="RangeSliderControl_MinValue" description-key="Minimal value of the slider" of-type-group="numbers" usage="input" required="true" />
-    <property name="MaxValue" display-name-key="RangeSliderControl_MaxValue" description-key="Maximum value of the slider" of-type-group="numbers" usage="input" required="true" />
-    <property name="StepValue" display-name-key="RangeSliderControl_StepValue" description-key="Step value of the slider" of-type-group="numbers" usage="input" required="false" />
-    <property name="HolderValue" display-name-key="RangeSliderControl_HolderValue" description-key="HolderValue" of-type-group="numbers" usage="bound" required="false" />
-    <property name="LowerValue" display-name-key="RangeSliderControl_LowerValue" description-key="Lower value of the slider that will be set" of-type-group="numbers" usage="bound" required="true" />
-    <property name="UpperValue" display-name-key="RangeSliderControl_UpperValue" description-key="Upper value of the slider" of-type-group="numbers" usage="bound" required="true" />
-    
+    <property name="MinValue" display-name-key="MinValue" description-key="Minimal value of the slider" of-type-group="numbers" usage="input" required="true" />
+    <property name="MaxValue" display-name-key="MaxValue" description-key="Maximum value of the slider" of-type-group="numbers" usage="input" required="true" />
+    <property name="StepValue" display-name-key="StepValue" description-key="Step value of the slider" of-type-group="numbers" usage="input" required="false" />
+    <property name="HolderValue" display-name-key="HolderValue" description-key="HolderValue" of-type-group="numbers" usage="bound" required="false" />
+    <property name="LowerValue" display-name-key="LowerValue" description-key="Lower value of the slider that will be set" of-type-group="numbers" usage="bound" required="true" />
+    <property name="UpperValue" display-name-key="UpperValue" description-key="Upper value of the slider" of-type-group="numbers" usage="bound" required="true" />
+    <property name="ShowScale" display-name-key="ShowScale" description-key="Set 1 to show scale (StepValue required)" of-type="Whole.None" usage="input" required="false" />
+    <property name="RequireStep" display-name-key="RequireStep" description-key="Set 1 to move only on step value (StepValue required)" of-type="Whole.None" usage="input" required="false" />
+
     <resources>
       <code path="index.ts" order="1"/>
       <css path="css/nouislider.min.css" order="1" />

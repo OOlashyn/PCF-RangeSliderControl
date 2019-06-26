@@ -39,9 +39,12 @@ export class RangeSliderControl implements ComponentFramework.StandardControl<II
 
 		this._minValue = context.parameters.MinValue.raw || 0;
 		this._maxValue = context.parameters.MaxValue.raw || 100;
-		this._stepValue = context.parameters.StepValue.raw;
+		this._stepValue = context.parameters.StepValue.raw || 10;
 		this._upperValue = context.parameters.UpperValue.raw;
 		this._lowerValue = context.parameters.LowerValue.raw;
+
+		let showScale = !!context.parameters.ShowScale.raw;
+		let requireStep = !!context.parameters.RequireStep.raw;
 
 		this._slider = document.createElement("div");
 		this._slider.id = "slider";
@@ -56,18 +59,45 @@ export class RangeSliderControl implements ComponentFramework.StandardControl<II
 		let startLower:number = this._lowerValue || this._minValue;
 		let startUpper:number = this._upperValue || this._maxValue;
 
-		noUiSlider.create(this._slider, {
-			start: [startLower, startUpper],
-			connect: true,
-			range: {
-				'min': this._minValue,
-				'max': this._maxValue
-			},
-			tooltips: true,
-		});
+		let sliderOptions = this.getSliderOptions(this._minValue, this._maxValue,
+			startLower, startUpper, this._stepValue, showScale, requireStep);
+
+		noUiSlider.create(this._slider, sliderOptions);
 
 		// @ts-ignore
 		this._slider.noUiSlider.on('change', this.refreshData);
+	}
+
+	private getSliderOptions(min:number,max:number, startLower:number, startUpper:number, 
+		step:number, showScale:boolean, requireStep:boolean): noUiSlider.Options{
+
+		let options:noUiSlider.Options = {
+			start: [startLower, startUpper],
+			range: {
+				'min': min,
+				'max': max
+			},
+			connect: true,
+			tooltips: true
+		};
+
+		if(showScale && step){
+			options.pips = {
+				mode: 'steps',
+        		values: [0, 50, 100],
+				density: 2,
+				stepped: true
+			};
+		}
+
+		if(requireStep){
+			options.range = {
+				'min': [min, step],
+				'max': max
+			}
+		}
+
+		return options;
 	}
 
 	public refreshData(values:string[], handle:number):void{
