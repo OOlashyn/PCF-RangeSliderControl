@@ -61,19 +61,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\odri_\\.nuget\\packages\\": {}
+    "C:\\Users\\Asus\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\PcfCodeExample\\RangeSliderControl\\RangeSliderControl.pcfproj",
+      "projectUniqueName": "C:\\Code\\PCF-RangeSliderControl\\RangeSliderControl.pcfproj",
       "projectName": "RangeSliderControl",
-      "projectPath": "C:\\PcfCodeExample\\RangeSliderControl\\RangeSliderControl.pcfproj",
-      "packagesPath": "C:\\Users\\odri_\\.nuget\\packages\\",
-      "outputPath": "C:\\PcfCodeExample\\RangeSliderControl\\obj\\",
+      "projectPath": "C:\\Code\\PCF-RangeSliderControl\\RangeSliderControl.pcfproj",
+      "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+      "outputPath": "C:\\Code\\PCF-RangeSliderControl\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\odri_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

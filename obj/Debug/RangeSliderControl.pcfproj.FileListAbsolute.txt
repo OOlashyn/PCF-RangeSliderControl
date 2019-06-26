@@ -1,2 +1,4 @@
 C:\PcfCodeExample\RangeSliderControl\obj\Debug\RangeSliderControl.pcfprojAssemblyReference.cache
 C:\PcfCodeExample\RangeSliderControl\obj\Debug\RangeSliderControl.pcfproj.CoreCompileInputs.cache
+C:\Code\PCF-RangeSliderControl\obj\Debug\RangeSliderControl.pcfprojAssemblyReference.cache
+C:\Code\PCF-RangeSliderControl\obj\Debug\RangeSliderControl.pcfproj.CoreCompileInputs.cache
