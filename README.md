@@ -1,6 +1,6 @@
 # PCF-RangeSliderControl
 
-Purpose of this control is to allow users to createcustomizable range slider control (using [noUiSlider](https://refreshless.com/nouislider/))
+Purpose of this control is to allow users to create customizable range slider control (using [noUiSlider](https://refreshless.com/nouislider/))
 
 ![Vidéo](https://github.com/OOlashyn/PCF-RangeSliderControl/blob/master/Screenshots/demo-v1.gif?raw=true)
 
