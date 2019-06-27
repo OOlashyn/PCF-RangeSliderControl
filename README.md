@@ -4,11 +4,11 @@ Purpose of this control is to allow users to create customizable range slider co
 
 ![Vidéo](https://github.com/OOlashyn/PCF-RangeSliderControl/blob/master/Screenshots/demo-v1.gif?raw=true)
 
-## Range Slider Control
+### Download Range Slider Control
 
 [Download](https://github.com/OOlashyn/PCF-RangeSliderControl/releases)
 
-### Configuration
+## Configuration
 
 This is the list of parameters that can be set on the control
 
