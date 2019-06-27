@@ -27,8 +27,8 @@ This is the list of parameters that can be set on the control
 
 Show scale below slider. **ShowScale** value set to 1.
 
-![Demo](https://github.com/OOlashyn/PCF-RangeSliderControl/blob/master/Screenshots/demo-scale-v1.gif?raw=true)
+![DemoScale](https://github.com/OOlashyn/PCF-RangeSliderControl/blob/master/Screenshots/demo-scale-v1.gif?raw=true)
 
 Restrict holder to move only on step size.  **RequireStep** value set to 1. **ShowScale** value set to 1. **StepValue** set to 10.
 
-![Demo](https://github.com/OOlashyn/PCF-RangeSliderControl/blob/master/Screenshots/demo-step-v1.gif?raw=true)
+![DemoStep](https://github.com/OOlashyn/PCF-RangeSliderControl/blob/master/Screenshots/demo-step-v1.gif?raw=true)
