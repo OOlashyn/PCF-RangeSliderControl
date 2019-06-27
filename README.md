@@ -4,7 +4,7 @@ Purpose of this control is to allow users to create customizable range slider co
 
 ![Demo](https://github.com/OOlashyn/PCF-RangeSliderControl/blob/master/Screenshots/demo-v1.gif?raw=true)
 
-You can see more example in the Demo section below.
+You can see more examples in the Demo section below.
 
 ### Download Range Slider Control
 
